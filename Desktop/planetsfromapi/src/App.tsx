@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [size, setSize] = useState<string>("mobile")
+  const [page, setPage] = useState<string>("home")
 
   const updateMedia = () => {
     if (window.innerWidth < 768) {
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <div style={{backgroundImage : `url(assets/background-home-${size}.jpg)`}} className=" h-[100vh] bg-no-repeat bg-cover overflow-hidden relative">
-      <Header/>
+      <Header page={page} setPage={setPage}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
       </Routes>

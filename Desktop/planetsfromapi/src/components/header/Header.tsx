@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+interface HeaderProps {
+  page: string; 
+  setPage: React.Dispatch<React.SetStateAction<string>>; 
+}
+
+const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ulRef = useRef<HTMLUListElement | null>(null);
 
@@ -49,22 +55,30 @@ const Header = () => {
               setIsOpen(false);
             }}
           />
-          <li className="flex mt-5 md:m-0 md:hover:border-b-[3px] border-[#FFFFFF] md:transition-all duration-200 md:pb-7">
+          <Link to="/" onClick={() => {
+            setPage("home")
+          }} className={`flex mt-5 md:m-0   md:pb-7 ${page==="home" ? "md:border-b-[3px] border-[#FFFFFF]" : null}`}>
             <p className="font-[700] text-[16px] font-[Barlow-Condensed] md:hidden">00</p>
             <p className="font-[100] tracking-[2px] ml-3 md:text-[14px] md:ml-0">HOME</p>
-          </li>
-          <li className="flex mt-5 md:m-0 md:hover:border-b-[3px] border-[#FFFFFF] md:transition-all duration-200 md:pb-7">
+          </Link>
+          <Link to="/destination"onClick={() => {
+            setPage("destination")
+          }} className={`flex mt-5 md:m-0   md:pb-7 ${page==="destination" ? "md:border-b-[3px] border-[#FFFFFF]" : null}`}>
             <p className="font-[700] text-[16px] font-[Barlow-Condensed] md:hidden">01</p>
             <p className="font-[100] tracking-[2px] ml-3 md:text-[14px] md:ml-0">DESTINATION</p>
-          </li>
-          <li className="flex mt-5 md:m-0 md:hover:border-b-[3px] border-[#FFFFFF] md:transition-all duration-200 md:pb-7">
+          </Link>
+          <Link to="/crew" onClick={() => {
+            setPage("crew")
+          }} className={`flex mt-5 md:m-0   md:pb-7 ${page==="crew" ? "md:border-b-[3px] border-[#FFFFFF]" : null}`}>
             <p className="font-[700] text-[16px] font-[Barlow-Condensed] md:hidden">02</p>
             <p className="font-[100] tracking-[2px] ml-3 md:text-[14px] md:ml-0">CREW</p>
-          </li>
-          <li className="flex mt-5 md:m-0 md:hover:border-b-[3px] border-[#FFFFFF] md:transition-all duration-200 md:pb-7">
+          </Link>
+          <Link to="/technology" onClick={() => {
+            setPage("technology")
+          }} className={`flex mt-5 md:m-0   md:pb-7 ${page==="technology" ? "md:border-b-[3px] border-[#FFFFFF]" : null}`}>
             <p className="font-[700] text-[16px] font-[Barlow-Condensed] md:hidden">03</p>
             <p className="font-[100] tracking-[2px] ml-3 md:text-[14px] md:ml-0">TECHNOLOGY</p>
-          </li>
+          </Link>
         </ul>
         </div>
     </div>
