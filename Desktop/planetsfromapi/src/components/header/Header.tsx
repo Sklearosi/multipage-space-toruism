@@ -27,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
   return (
     <div className="">
       <div className="w-11/12 flex justify-between items-center m-auto pt-6 relative xl:mt-5">
-        <img className="w-10 h-10" src="assets/logo.svg" alt="" />
+        <img className="w-10 h-10" src="/assets/logo.svg" alt="" />
 
         <img
           className="w-6 h-[21px] md:hidden"
-          src="assets/icon-hamburger.svg"
+          src="/assets/icon-hamburger.svg"
           alt=""
           onClick={() => {
             setIsOpen(!isOpen);
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
         >
           <img
             className="absolute right-7 top-7 md:hidden"
-            src="assets/icon-close.svg"
+            src="/assets/icon-close.svg"
             alt=""
             onClick={() => {
               setIsOpen(false);
@@ -60,6 +60,7 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
             to="/"
             onClick={() => {
               setPage("home");
+              setIsOpen(false)
             }}
             className={`flex mt-5 md:m-0   md:pb-7 ${
               page === "home" ? "md:border-b-[3px] border-[#FFFFFF]" : null
@@ -76,6 +77,7 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
             to="/destination"
             onClick={() => {
               setPage("destination");
+              setIsOpen(false)
             }}
             className={`flex mt-5 md:m-0   md:pb-7 ${
               page === "destination"
@@ -94,6 +96,7 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
             to="/crew"
             onClick={() => {
               setPage("crew");
+              setIsOpen(false)
             }}
             className={`flex mt-5 md:m-0   md:pb-7 ${
               page === "crew" ? "md:border-b-[3px] border-[#FFFFFF]" : null
@@ -110,6 +113,7 @@ const Header: React.FC<HeaderProps> = ({ page, setPage }) => {
             to="/technology"
             onClick={() => {
               setPage("technology");
+              setIsOpen(false)
             }}
             className={`flex mt-5 md:m-0   md:pb-7 ${
               page === "technology"
