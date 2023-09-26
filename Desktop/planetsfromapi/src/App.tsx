@@ -31,7 +31,7 @@ function App() {
  
 
   return (
-    <div style={{backgroundImage : `url(assets/background-home-${size}.jpg)`}} className=" h-[100vh] bg-no-repeat bg-cover overflow-hidden relative">
+    <div style={{backgroundImage : `url(assets/background-home-${size}.jpg)`}} className=" h-[100vh] bg-no-repeat bg-cover overflow-x-hidden relative">
       <Header page={page} setPage={setPage}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
